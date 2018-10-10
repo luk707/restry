@@ -16,6 +16,7 @@ const customerEndpoint = context => (req, res) => {
   res.writeHead(200, { "Content-Type": "application/json" });
   res.write(
     JSON.stringify({
+      // Url params can be accessed through context
       id: context.params.id,
       firstName: "John",
       lastName: "Smith"
@@ -51,16 +52,17 @@ const server = http.createServer(
   router([
     // Exact specifies not to match sub routes i.e. only match the index route
     { path: "/", exact: true, handler: testEndpoint },
-    { path: "/customer/:id", handler: customerEndpoint },
+    // Specify a method or a list of methods to match
+    { path: "/customer/:id", method: "get|delete", handler: customerEndpoint },
     // Since routers are handlers, a router can be nested within a router
     {
       path: "/transaction",
       handler: router([
-        // Routes within another router are relative
+        // Paths within another router are relative
         { path: "/:id", handler: transactionEndpoint }
       ])
     },
-    // If you don't specify a path, the route will always be hit
+    // If you don't specify a path, the route will always be hit, anything after this route would be ignored
     { handler: notFoundEndpoint }
   ])({ path: "" })
 );

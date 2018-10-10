@@ -6,7 +6,15 @@ export default routes => context => async (req, res) => {
   for (const route of routes) {
     const path = `${context.path || ""}${route.path}`;
     const match = matchPath({ path, url, end: route.exact || false });
+    // If no match was found when a path is specified, ignore route
     if (!match && route.path) {
+      continue;
+    }
+    /**
+     * If a method test is defined and it does not match the req method
+     * continue. Otherwise use the route.
+     */
+    if (route.method && !new RegExp(route.method, "i").test(req.method)) {
       continue;
     }
     const childContext = { ...context, path, params: match && match.params };
