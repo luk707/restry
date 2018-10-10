@@ -4,7 +4,7 @@ import objectRestSpreadPlugin from "@babel/plugin-proposal-object-rest-spread";
 import transformAsyncToGeneratorPlugin from "@babel/plugin-transform-async-to-generator";
 import transformRuntimePlugin from "@babel/plugin-transform-runtime";
 
-export default ({ srcDir }) => ({
+export default () => ({
   presets: [createConfigItem(envPreset)],
   plugins: [
     createConfigItem(objectRestSpreadPlugin),
