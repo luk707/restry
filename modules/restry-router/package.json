@@ -1,0 +1,18 @@
+{
+  "name": "restry-router",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "restry-scripts build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luke Harris <lukeharris01170@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "path-to-regexp": "^2.4.0"
+  },
+  "devDependencies": {
+    "restry-scripts": "0.0.1"
+  }
+}
