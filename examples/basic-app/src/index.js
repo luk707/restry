@@ -1,5 +1,5 @@
 import http from "http";
-import router from "restry-router";
+import router, { routerContext } from "restry-router";
 
 const testEndpoint = context => (req, res) => {
   res.writeHead(200, { "Content-Type": "application/json" });
@@ -13,11 +13,12 @@ const testEndpoint = context => (req, res) => {
 };
 
 const customerEndpoint = context => (req, res) => {
+  const { params } = routerContext.consumer(context);
   res.writeHead(200, { "Content-Type": "application/json" });
   res.write(
     JSON.stringify({
       // Url params can be accessed through context
-      id: context.params.id,
+      id: params.id,
       firstName: "John",
       lastName: "Smith"
     })
@@ -26,10 +27,11 @@ const customerEndpoint = context => (req, res) => {
 };
 
 const transactionEndpoint = context => (req, res) => {
+  const { params } = routerContext.consumer(context);
   res.writeHead(200, { "Content-Type": "application/json" });
   res.write(
     JSON.stringify({
-      id: context.params.id,
+      id: params.id,
       amount: 123.45
     })
   );
@@ -67,4 +69,6 @@ const server = http.createServer(
   ])({ path: "" })
 );
 
-server.listen(8080);
+server.listen(8080, () => {
+  console.log("Listening on port 8080");
+});

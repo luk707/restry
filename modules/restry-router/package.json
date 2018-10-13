@@ -10,7 +10,8 @@
   "author": "Luke Harris <lukeharris01170@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "path-to-regexp": "^2.4.0"
+    "path-to-regexp": "^2.4.0",
+    "restry": "0.0.1"
   },
   "devDependencies": {
     "restry-scripts": "0.0.1"

@@ -1,10 +1,14 @@
-import matchPath from "./match-path";
+import { createContext } from "restry";
 import { parse as parseUrl } from "url";
+import matchPath from "./match-path";
+
+export const routerContext = createContext({ path: "", params: {} });
 
 export default routes => context => async (req, res) => {
   const url = parseUrl(req.url).pathname;
+  const { contextPath } = routerContext.consumer(context);
   for (const route of routes) {
-    const path = `${context.path || ""}${route.path}`;
+    const path = `${contextPath || ""}${route.path}`;
     const match = matchPath({ path, url, end: route.exact || false });
     // If no match was found when a path is specified, ignore route
     if (!match && route.path) {
@@ -17,8 +21,10 @@ export default routes => context => async (req, res) => {
     if (route.method && !new RegExp(route.method, "i").test(req.method)) {
       continue;
     }
-    const childContext = { ...context, path, params: match && match.params };
-    await route.handler(childContext)(req, res);
+    await routerContext.provider(
+      { path, params: match && match.params },
+      route.handler
+    )(req, res);
     return;
   }
   res.writeHead(404, { "Content-Type": "application/json" });

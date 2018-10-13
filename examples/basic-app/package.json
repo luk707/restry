@@ -11,7 +11,8 @@
   "author": "Luke Harris <lukeharris01170@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "restry-router": "0.0.1"
+    "restry-router": "0.0.1",
+    "restry": "0.0.1"
   },
   "devDependencies": {
     "restry-scripts": "0.0.1"
