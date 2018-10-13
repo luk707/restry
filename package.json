@@ -3,5 +3,8 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.4.1"
+  },
+  "scripts": {
+    "init": "lerna bootstrap --hoist && lerna exec --scope restry-scripts -- npm run build && lerna bootstrap --hoist && lerna exec -- npm run build"
   }
 }

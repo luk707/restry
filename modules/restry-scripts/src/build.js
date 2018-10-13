@@ -1,7 +1,7 @@
 import * as babel from "@babel/core";
 import fs from "fs";
 import path from "path";
-import babelConfig from "./babel-config";
+import babelConfig from "../babel-config";
 import glob from "./util/glob";
 import exec from "./util/exec";
 
@@ -14,7 +14,7 @@ export default async ({ srcDir = "src", libDir = "lib" }) => {
     matches.map(match => {
       const destination = path.join(libDir, path.relative(srcDir, match));
       babel
-        .transformFileAsync(match, babelConfig())
+        .transformFileAsync(match, babelConfig)
         .then(
           ({ code }) =>
             new Promise(resolve => {
