@@ -2,6 +2,7 @@ import pathToRegexp from "path-to-regexp";
 
 export default ({ path, url, end }) => {
   const keys = [];
+  // TODO: A new regex is being compiled every time, perhaps a cache could be used
   const test = pathToRegexp(path, keys, { end });
   const match = test.exec(url);
   if (!match) {

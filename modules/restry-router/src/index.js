@@ -21,12 +21,14 @@ export default routes => context => async (req, res) => {
     if (route.method && !new RegExp(route.method, "i").test(req.method)) {
       continue;
     }
+
     await routerContext.provider(
       { path, params: match && match.params },
       route.handler
-    )(req, res);
+    )(context)(req, res);
     return;
   }
+  // TODO: This kind of logic could be implemented elsewhere
   res.writeHead(404, { "Content-Type": "application/json" });
   res.write(
     JSON.stringify({
