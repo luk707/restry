@@ -6,9 +6,9 @@ export const routerContext = createContext({ path: "", params: {} });
 
 export default routes => context => async (req, res) => {
   const url = parseUrl(req.url).pathname;
-  const { contextPath } = routerContext.consumer(context);
+  const { path: rootPath } = routerContext.consumer(context);
   for (const route of routes) {
-    const path = `${contextPath || ""}${route.path}`;
+    const path = `${rootPath || ""}${route.path}`;
     const match = matchPath({ path, url, end: route.exact || false });
     // If no match was found when a path is specified, ignore route
     if (!match && route.path) {
