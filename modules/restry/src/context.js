@@ -1,6 +1,6 @@
 let nextContextId = 0;
 
-const createContext = defaultValue => {
+export const createContext = defaultValue => {
   const contextId = ++nextContextId;
   return {
     provider: (value, block) => context =>
@@ -8,5 +8,3 @@ const createContext = defaultValue => {
     consumer: context => context[contextId] || defaultValue
   };
 };
-
-export { createContext };
