@@ -1,10 +1,23 @@
 import pathToRegexp from "path-to-regexp";
 
-export default ({ path, url, end }) => {
+const pathMap = new Map();
+
+const getMemoizedRegexp = (path, end) => {
+  const key = `${end ? "exact_" : ""}${path}`;
+  const memoizedPath = pathMap.get(key);
+  if (memoizedPath !== undefined) {
+    return memoizedPath;
+  }
   const keys = [];
-  // TODO: A new regex is being compiled every time, perhaps a cache could be used
-  const test = pathToRegexp(path, keys, { end });
-  const match = test.exec(url);
+  const pattern = pathToRegexp(path, keys, { end });
+  const result = { keys, pattern };
+  pathMap.set(key, result);
+  return result;
+};
+
+export default ({ path, url, end }) => {
+  const { keys, pattern } = getMemoizedRegexp(path, end);
+  const match = pattern.exec(url);
   if (!match) {
     return null;
   }
