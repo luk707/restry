@@ -10,6 +10,9 @@
   "bin": {
     "restry-scripts": "lib/bin.js"
   },
+  "files": [
+    "lib/**/*.js"
+  ],
   "keywords": [],
   "author": "Luke Harris <lukeharris01170@gmail.com>",
   "license": "MIT",
