@@ -11,7 +11,9 @@
     "restry-scripts": "lib/bin.js"
   },
   "files": [
-    "lib/**/*.js"
+    "lib",
+    "register.js",
+    "babel-config.js"
   ],
   "keywords": [],
   "author": "Luke Harris <lukeharris01170@gmail.com>",
