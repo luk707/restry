@@ -1,6 +1,6 @@
 {
   "name": "restry",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,8 +9,7 @@
   },
   "author": "Luke Harris <lukeharris01170@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
-    "restry-scripts": "0.0.1"
+    "restry-scripts": "^0.1.0"
   }
 }
