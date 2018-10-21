@@ -1,6 +1,6 @@
 {
   "name": "basic-app",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "description": "",
   "main": "index.js",
@@ -12,11 +12,11 @@
   "author": "Luke Harris <lukeharris01170@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "restry": "^0.1.2",
-    "restry-http": "^0.1.2",
-    "restry-router": "^0.1.2"
+    "restry": "^0.1.3",
+    "restry-http": "^0.1.3",
+    "restry-router": "^0.1.3"
   },
   "devDependencies": {
-    "restry-scripts": "^0.1.2"
+    "restry-scripts": "^0.1.3"
   }
 }
