@@ -1,19 +1,15 @@
 {
-  "name": "basic-app",
+  "name": "restry-http",
   "version": "0.0.1",
-  "private": true,
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "dev": "node -r restry-scripts src/index.js",
     "build": "restry-scripts build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Luke Harris <lukeharris01170@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "restry-http": "0.0.1",
-    "restry-router": "0.0.1",
     "restry": "0.0.1"
   },
   "devDependencies": {

@@ -28,7 +28,6 @@ export default routes => context => async (req, res) => {
     )(context)(req, res);
     return;
   }
-  // TODO: This kind of logic could be implemented elsewhere
   res.writeHead(404, { "Content-Type": "application/json" });
   res.write(
     JSON.stringify({
