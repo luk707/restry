@@ -1,6 +1,6 @@
 {
   "name": "restry-router",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -11,9 +11,9 @@
   "license": "MIT",
   "dependencies": {
     "path-to-regexp": "^2.4.0",
-    "restry": "^0.1.0"
+    "restry": "^0.1.1"
   },
   "devDependencies": {
-    "restry-scripts": "^0.1.0"
+    "restry-scripts": "^0.1.1"
   }
 }
